@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <item-li></item-li>
+    </div>
+
+    <script>
+        const myComponent = `
+            <div>아이템</div>
+        `;
+
+        Vue.component("item-li", {
+            template: myComponent
+        });
+
+        const app = new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>
