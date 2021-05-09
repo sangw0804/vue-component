@@ -9,6 +9,7 @@
     <div id="app">
         <button @click="increase">increase!!</button>
         {{ counter }}
+        <input @keyup.delete="deleteKeyup">
     </div>
 
     <script>
@@ -20,6 +21,9 @@
             methods: {
                 increase: function () {
                     this.counter++;
+                },
+                deleteKeyup: function () {
+                    alert("delete!!!");
                 }
             }
         });
