@@ -13,7 +13,10 @@
 
     <script>
         const myComponent = `
-            <div>{{ name }}</div>
+            <div>
+                {{ name }}
+                <input type="checkbox" v-model="checked">
+            </div>
         `;
 
         Vue.component("item-li", {
@@ -27,6 +30,11 @@
                     type: String,
                     required: true
                 }
+            },
+            data: function () {
+                return {
+                    checked: false
+                };
             }
         });
 
