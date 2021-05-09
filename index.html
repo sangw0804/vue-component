@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="app">
-        <item-li v-for="item in items" v-bind="item"></item-li>
+        <item-li v-for="item in items" v-bind="item" @push="pushItemSeq" @remove="removeItemSeq"></item-li>
         {{ selected }}
     </div>
 
@@ -15,7 +15,7 @@
         const myComponent = `
             <div>
                 {{ name }}
-                <input type="checkbox" v-model="checked">
+                <input type="checkbox" @change="checkboxChanged">
             </div>
         `;
 
@@ -31,10 +31,14 @@
                     required: true
                 }
             },
-            data: function () {
-                return {
-                    checked: false
-                };
+            methods: {
+                checkboxChanged: function (event) {
+                    if (event.target.checked) {
+                        this.$emit("push", this.itemSeq);
+                    } else {
+                        this.$emit("remove", this.itemSeq);
+                    }
+                }
             }
         });
 
@@ -52,6 +56,14 @@
                     }
                 ],
                 selected: []
+            },
+            methods: {
+                pushItemSeq: function (itemSeq) {
+                    this.selected.push(itemSeq);
+                },
+                removeItemSeq: function (itemSeq) {
+                    this.selected = this.selected.filter(val => val !== itemSeq);
+                }
             }
         });
     </script>
