@@ -7,8 +7,7 @@
 </head>
 <body>
     <div id="app">
-        <item-li item-name="귀멸의 칼날 1회"></item-li>
-        <item-li item-name="귀멸의 칼날 2회"></item-li>
+        <item-li v-for="item in items" :item-name="item.name"></item-li>
     </div>
 
     <script>
@@ -22,7 +21,17 @@
         });
 
         const app = new Vue({
-            el: "#app"
+            el: "#app",
+            data: {
+                items: [
+                    {
+                        name: "귀멸의 칼날 1회"
+                    },
+                    {
+                        name: "귀멸의 칼날 2회"
+                    }
+                ]
+            }
         });
     </script>
 </body>
