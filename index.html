@@ -7,12 +7,21 @@
 </head>
 <body>
     <div id="app">
-        <button></button>
+        <button @click="increase">increase!!</button>
+        {{ counter }}
     </div>
 
     <script>
         const app = new Vue({
-            el: "#app"
+            el: "#app",
+            data: {
+                counter: 0
+            },
+            methods: {
+                increase: function () {
+                    this.counter++;
+                }
+            }
         });
     </script>
 </body>
