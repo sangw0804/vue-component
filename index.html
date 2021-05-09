@@ -7,16 +7,18 @@
 </head>
 <body>
     <div id="app">
-        <item-li></item-li>
+        <item-li item-name="귀멸의 칼날 1회"></item-li>
+        <item-li item-name="귀멸의 칼날 2회"></item-li>
     </div>
 
     <script>
         const myComponent = `
-            <div>아이템</div>
+            <div>{{ itemName }}</div>
         `;
 
         Vue.component("item-li", {
-            template: myComponent
+            template: myComponent,
+            props: ["itemName"]
         });
 
         const app = new Vue({
