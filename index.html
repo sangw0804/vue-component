@@ -7,17 +7,27 @@
 </head>
 <body>
     <div id="app">
-        <item-li v-for="item in items" :item-name="item.name"></item-li>
+        <item-li v-for="item in items" v-bind="item"></item-li>
+        {{ selected }}
     </div>
 
     <script>
         const myComponent = `
-            <div>{{ itemName }}</div>
+            <div>{{ name }}</div>
         `;
 
         Vue.component("item-li", {
             template: myComponent,
-            props: ["itemName"]
+            props: {
+                itemSeq: {
+                    type: Number,
+                    required: true
+                },
+                name: {
+                    type: String,
+                    required: true
+                }
+            }
         });
 
         const app = new Vue({
@@ -25,12 +35,15 @@
             data: {
                 items: [
                     {
+                        itemSeq: 1,
                         name: "귀멸의 칼날 1회"
                     },
                     {
+                        itemSeq: 2,
                         name: "귀멸의 칼날 2회"
                     }
-                ]
+                ],
+                selected: []
             }
         });
     </script>
