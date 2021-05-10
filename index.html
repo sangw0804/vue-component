@@ -7,28 +7,15 @@
 </head>
 <body>
     <div id="app">
-        <select v-model="selected">
-            <option v-for="option in options" :value="option.value">{{ option.text }}</option>
-        </select>
-        {{ selected }}
+        <input v-model.lazy="name">
+        {{ name }}
     </div>
 
     <script>
         const app = new Vue({
             el: "#app",
             data: {
-                selected: "J",
-                options: [
-                    {
-                        text: "james", value: "J"
-                    },
-                    {
-                        text: "tom", value: "T"
-                    },
-                    {
-                        text: "alex", value: "A"
-                    }
-                ]
+                name: ""
             }
         });
     </script>
