@@ -7,16 +7,28 @@
 </head>
 <body>
     <div id="app">
-        <input type="checkbox" v-model="checked" value="james">
-        <input type="checkbox" v-model="checked" value="tom">
-        {{ checked }}
+        <select v-model="selected">
+            <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+        </select>
+        {{ selected }}
     </div>
 
     <script>
         const app = new Vue({
             el: "#app",
             data: {
-                checked: []
+                selected: "J",
+                options: [
+                    {
+                        text: "james", value: "J"
+                    },
+                    {
+                        text: "tom", value: "T"
+                    },
+                    {
+                        text: "alex", value: "A"
+                    }
+                ]
             }
         });
     </script>
