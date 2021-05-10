@@ -7,8 +7,9 @@
 </head>
 <body>
     <div id="app">
-        <input v-model.lazy="name">
+        <input v-model="name">
         {{ name }}
+        <input v-bind:value="name" v-on:input="event => name = event.target.value">
     </div>
 
     <script>
